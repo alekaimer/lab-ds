@@ -1,3 +1,4 @@
+import { Text } from "./components/Text";
 import "./styles/global.css";
 
 export function App() {
@@ -7,6 +8,7 @@ export function App() {
       <button className="bg-cyan-500 hover:bg-cyan-300 text-white font-medium px-4 py-2 rounded">
         Enviar
       </button>
+      <Text />
     </>
   );
 }
