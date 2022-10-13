@@ -15,6 +15,11 @@ export default {
         options: ["sm", "md", "lg"],
       },
     },
+    asChild: {
+      table: {
+        disable: true,
+      },
+    },
   },
 } as Meta<HeadingProps>;
 
@@ -39,11 +44,6 @@ export const CustomComponent: StoryObj<HeadingProps> = {
       table: {
         disable: true,
       },
-    },
-    asChild: {
-      table: {
-        disable: true,
-      },
-    },
+    }
   },
 };
