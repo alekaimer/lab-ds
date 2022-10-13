@@ -14,6 +14,11 @@ export default {
         disable: true,
       },
     },
+    asChild: {
+      table: {
+        disable: true,
+      },
+    },
   },
 } as Meta<TextInputRootProps>;
 
