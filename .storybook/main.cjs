@@ -14,6 +14,9 @@ module.exports = {
     storyStoreV7: true,
     interactionsDebugger: true
   },
+  "staticDirs": [
+    "public"
+  ],
   viteFinal: (config, { configType }) => {
     // do mutation to the config
     if (configType === "PRODUCTION") {
