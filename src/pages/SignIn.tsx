@@ -1,5 +1,7 @@
+import { FormEvent, useState } from "react";
 import { Checkbox } from "@radix-ui/react-checkbox";
 import { Envelope, Lock } from "phosphor-react";
+
 import { Button } from "../components/Button";
 import { Heading } from "../components/Heading";
 import Logo from "../components/Logo";
@@ -7,17 +9,32 @@ import { Text } from "../components/Text";
 import { TextInput } from "../components/TextInput";
 
 export function SignIn() {
+  const [isUserSignedIn, setIsUserSignedIn] = useState(false);
+
+  function handleSignIn(event: FormEvent) {
+    event.preventDefault();
+
+    setIsUserSignedIn(true);
+  }
+
   return (
     <div className="w-screen h-screen bg-gray-900 flex flex-col items-center justify-center text-gray-100">
       <header className="flex flex-col items-center">
         <Logo />
-        <Heading size="lg" className="mt-4">Login</Heading>
+        <Heading size="lg" className="mt-4">
+          Login
+        </Heading>
         <Text size="lg" className="text-gray-400">
           Faça login para acessar sua conta
         </Text>
       </header>
 
-      <form className="flex flex-col gap-4 items-stretch w-full max-w-[400px] mt-10">
+      <form
+        onSubmit={handleSignIn}
+        className="flex flex-col gap-4 items-stretch w-full max-w-[400px] mt-10"
+      >
+        {isUserSignedIn && <Text>Login realizado!</Text>}
+
         <label htmlFor="email" className="flex flex-col gap-3">
           <Text size="sm" className="font-semibold">
             Endereço de e-mail
@@ -26,19 +43,27 @@ export function SignIn() {
             <TextInput.Icon>
               <Envelope />
             </TextInput.Icon>
-            <TextInput.Input id="email" type="email" placeholder="Degite seu e-mail" />
+            <TextInput.Input
+              id="email"
+              type="email"
+              placeholder="Degite seu e-mail"
+            />
           </TextInput.Root>
         </label>
 
         <label htmlFor="password" className="flex flex-col gap-3">
           <Text size="sm" className="font-semibold">
-            Sua senha 
+            Sua senha
           </Text>
           <TextInput.Root>
             <TextInput.Icon>
               <Lock />
             </TextInput.Icon>
-            <TextInput.Input id="password" type="password" placeholder="******" />
+            <TextInput.Input
+              id="password"
+              type="password"
+              placeholder="******"
+            />
           </TextInput.Root>
         </label>
 
@@ -56,10 +81,14 @@ export function SignIn() {
 
       <footer className="flex flex-col items-center gap-4 mt-8">
         <Text asChild size="sm">
-          <a href="" className="text-gray-400 underline hover:text-gray-200">Esqueceu sua senha</a>
+          <a href="" className="text-gray-400 underline hover:text-gray-200">
+            Esqueceu sua senha
+          </a>
         </Text>
         <Text asChild size="sm">
-          <a href="" className="text-gray-400 underline hover:text-gray-200">Não possui conta? Crie uma agora!</a>
+          <a href="" className="text-gray-400 underline hover:text-gray-200">
+            Não possui conta? Crie uma agora!
+          </a>
         </Text>
       </footer>
     </div>
