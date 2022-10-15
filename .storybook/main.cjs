@@ -14,7 +14,7 @@ module.exports = {
     storyStoreV7: true,
     interactionsDebugger: true
   },
-  "staticDirs": [
+  staticDirs: [
     "public"
   ],
   viteFinal: (config, { configType }) => {
