@@ -15,7 +15,7 @@ module.exports = {
     interactionsDebugger: true
   },
   staticDirs: [
-    "public"
+    "/public"
   ],
   viteFinal: (config, { configType }) => {
     // do mutation to the config
