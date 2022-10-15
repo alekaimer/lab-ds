@@ -12,12 +12,14 @@ export default {
     msw: {
       handlers: [
         rest.post("/api/auth/signin", (req, res, ctx) => {
-          return res(ctx.json({
-            message: "Login realizado!"
-          }));
-        })
-      ]
-    }
+          return res(
+            ctx.json({
+              message: "Login realizado!",
+            })
+          );
+        }),
+      ],
+    },
   },
 } as Meta;
 
@@ -33,8 +35,16 @@ export const Default: StoryObj = {
 
     userEvent.click(canvas.getByRole("button"));
 
-    await waitFor(() =>
-      expect(canvas.getByText("Login realizado!")).toBeInTheDocument()
+    await waitFor(
+      () => expect(canvas.getByText("Login realizado!")).toBeInTheDocument(),
+      {
+        timeout: 15000,
+        interval: 1000,
+        onTimeout: (error) => {
+          console.log("error", error);
+          return error;
+        },
+      }
     );
   },
 };
