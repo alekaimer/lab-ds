@@ -5,14 +5,23 @@ import { Envelope, Lock } from "phosphor-react";
 import { Button } from "../components/Button";
 import { Heading } from "../components/Heading";
 import Logo from "../components/Logo";
+import axios from "axios";
 import { Text } from "../components/Text";
 import { TextInput } from "../components/TextInput";
 
 export function SignIn() {
   const [isUserSignedIn, setIsUserSignedIn] = useState(false);
 
-  function handleSignIn(event: FormEvent) {
+  async function handleSignIn(event: FormEvent) {
     event.preventDefault();
+
+    await axios.post("/api/auth/signin", {
+      email: "email@valido.com",
+      password: "12345678",
+    })
+      // .then((response) => {
+      //   () => console.log(response);
+      // });
 
     setIsUserSignedIn(true);
   }
