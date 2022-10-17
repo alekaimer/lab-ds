@@ -6,7 +6,13 @@ export default {
   title: "Components/Checkbox",
   component: Checkbox,
   args: {},
-  argTypes: {},
+  argTypes: {
+    asChild: {
+      table: {
+        disable: true,
+      }
+    }
+  },
   decorators: [
     (Story) => (
       <label htmlFor="remember" className="flex items-center space-x-2">

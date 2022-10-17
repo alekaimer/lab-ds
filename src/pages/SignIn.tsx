@@ -34,7 +34,7 @@ export function SignIn() {
           Login
         </Heading>
         <Text size="lg" className="text-gray-400">
-          Faça login para acessar sua conta
+          Faça login para acessar sua conta.
         </Text>
       </header>
 
