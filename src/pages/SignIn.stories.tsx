@@ -24,27 +24,27 @@ export default {
 } as Meta;
 
 export const Default: StoryObj = {
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
+  // play: async ({ canvasElement }) => {
+  //   const canvas = within(canvasElement);
 
-    userEvent.type(
-      canvas.getByPlaceholderText("Degite seu e-mail"),
-      "email@valido.com"
-    );
-    userEvent.type(canvas.getByPlaceholderText("******"), "12345678");
+  //   userEvent.type(
+  //     canvas.getByPlaceholderText("Degite seu e-mail"),
+  //     "email@valido.com"
+  //   );
+  //   userEvent.type(canvas.getByPlaceholderText("******"), "12345678");
 
-    userEvent.click(canvas.getByRole("button"));
+  //   userEvent.click(canvas.getByRole("button"));
 
-    await waitFor(
-      () => expect(canvas.getByText("Login realizado!")).toBeInTheDocument(),
-      {
-        timeout: 15000,
-        interval: 1000,
-        onTimeout: (error) => {
-          console.log("error", error);
-          return error;
-        },
-      }
-    );
-  },
+  //   await waitFor(
+  //     () => expect(canvas.getByText("Login realizado!")).toBeInTheDocument(),
+  //     {
+  //       timeout: 15000,
+  //       interval: 1000,
+  //       onTimeout: (error) => {
+  //         console.log("error", error);
+  //         return error;
+  //       },
+  //     }
+  //   );
+  // },
 };
